@@ -62,6 +62,12 @@ p {
   width: 65%; /* Supaya tidak terlalu lebar */
 }
 
+@media (max-width: 575.98px) {
+  .navbar {
+  width: 80%;
+  margin: 0 auto; /* agar tetap center */
+}
+
 .nav-link {
   position: relative;
   display: inline-block;
