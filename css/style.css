@@ -15,11 +15,10 @@ html {
   --accent-color: #750dfd;
   --surface-color: #ffffff;
   --contrast-color: #ffffff;
-  --branding-gradient: linear-gradient(
-    45deg,
-    rgba(102, 16, 242, 1) 0%,
-    rgb(159, 111, 235) 50%,
-    rgba(102, 16, 242, 1) 100%
+  --branding-gradient: radial-gradient(
+    circle,
+    rgba(197, 141, 248, 1) 0%,
+    rgba(37, 64, 193, 1) 100%
   );
 }
 
@@ -68,8 +67,10 @@ h2,
   width: 65%; /* Supaya tidak terlalu lebar */
 }
 
-.custom-navbar {
-  height: 60px;
+@media (min-width: 995px) {
+  .custom-navbar {
+    height: 60px;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -105,13 +106,12 @@ h2,
 /*========================== Hero ============================*/
 .hero {
   position: relative;
-  padding-top: 180px;
-  padding-bottom: 50px;
+  padding-top: 150px;
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--accent-color), transparent 98%) 50%,
-    color-mix(in srgb, var(--accent-color), transparent 98%) 25%,
-    transparent 50%
+    color-mix(in srgb, var(--accent-color), transparent 90%) 50%,
+    color-mix(in srgb, var(--accent-color), transparent 90%) 50%,
+    transparent 70%
   );
 }
 
@@ -177,10 +177,6 @@ h2,
   font-weight: 500;
 }
 
-.hero .company-badge i {
-  font-size: 1.25rem;
-}
-
 .hero .btn-primary {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
@@ -218,73 +214,50 @@ h2,
 }
 
 .hero .hero-image img {
+  margin-top: 60px;
   max-width: 100%;
   height: auto;
 }
 
-.hero .customers-badge {
+.hero .camera-icon img {
+  height: 100px;
+}
+
+.hero .camera-icon {
   position: absolute;
-  bottom: 10px;
-  right: 170px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(5px);
+  bottom: 500px;
   padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  max-width: 300px;
   animation: float-badge 3s ease-in-out infinite;
   will-change: transform;
+  z-index: 999;
 }
 
-.hero .customers-badge .customer-avatars {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.hero .customers-badge .avatar {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  border: 2px solid var(--surface-color);
-  margin-left: -8px;
-}
-
-.hero .customers-badge {
-  margin-left: 0;
-}
-
-.hero .customers-badge .avatar.more {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.hero .customers-badge p {
-  font-size: 0.875rem;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-}
-
-@media (max-width: 992px) {
-  .hero .customers-badge {
-    position: static;
-    margin: 1rem auto;
-    max-width: 250px;
+@media (max-width: 770px) {
+  .hero .camera-icon {
+    bottom: 45rem;
+    left: 20px;
   }
 }
 
+@keyframes float-badge {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
 .hero .stats-row {
   position: relative;
   z-index: 1;
-  margin-top: 5rem;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  padding-bottom: 2rem;
   backdrop-filter: blur(10px);
 }
 
@@ -339,20 +312,6 @@ h2,
 @media (max-width: 575px) {
   .hero .stat-item {
     padding: 1.5rem;
-  }
-}
-
-@keyframes float-badge {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-
-  100% {
-    transform: translateY(0);
   }
 }
 
